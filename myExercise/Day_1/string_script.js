@@ -109,7 +109,14 @@ let lastName = "Johnson";
 let age = 28;
 
 // Concatenation with `+`
-let introduction1 ="Hello, my name is " +firstName +" " +lastName +" and I am " +age +" years old.";
+let introduction1 =
+  "Hello, my name is " +
+  firstName +
+  " " +
+  lastName +
+  " and I am " +
+  age +
+  " years old.";
 console.log(introduction1);
 
 // Concatenation with Template Literals
@@ -254,8 +261,42 @@ console.log(introduction2);
 // } while (i <= 30);
 
 // Write a program that calculates the sum of all numbers from 1 to 100 using a for loop.
-let sumOfNum =0;
+let sumOfNum = 0;
 for (let i = 1; i <= 100; i++) {
   sumOfNum += i;
 }
 console.log(sumOfNum);
+
+// var number = 154;
+// console(number);
+// number = 1;
+// console
+
+// let myName ;
+// myName = "Abc";
+
+for (var i = 1; i <= 5; i++) {
+  console.log(i);
+}
+console.log(i);
+console.log(i);
+// In the first iteration, i starts at 1 and gets printed.
+// The loop continues, printing the values 2, 3, 4, 5.
+// After the loop finishes, the condition i <= 5 is no longer true, so the loop stops.
+// But, because i was declared using var, its value is still accessible outside the loop, and after the loop ends, i becomes 6 because the loop increments i one last time (i++) after printing 5.
+
+console.log(5 + "5"); //55
+console.log("5" + 5); //55
+
+// for (let i = 100; i >= 0; i -= 2) {
+//   console.log(i);
+// }
+
+// 1. NaN === NaN is false
+// In JavaScript, NaN (Not-a-Number) is a special value that represents an invalid or unrepresentable number, like the result of dividing 0/0. The thing to note is that NaN is not equal to anything, including itself. This is a quirk in JavaScript's specification:
+
+// The reasoning behind this is based on the IEEE 754 standard, which defines NaN as "Not a Number," and it cannot be compared to any other value, not even itself, since it's considered undefined or indeterminate.
+// So, when you compare NaN === NaN, it evaluates to false because they are not considered equal.
+
+// 2. null === null is true
+// On the other hand, null is a special value that represents the intentional absence of any object or value. When you compare null === null, it evaluates to true because null is a single, well-defined value, and it will always be equal to itself.
