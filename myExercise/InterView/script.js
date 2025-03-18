@@ -384,7 +384,53 @@ console.log(msm.split("").reverse().join(""));
 //how to swap two variables without using the third
 let abc = 5;
 let cba = 10;
-let temp = abc;
-abc = cba;
-cba = temp;
-console.log(`${abc} and ${cba}`)
+// let temp = abc;
+// abc = cba;
+// cba = temp;
+[abc, cba] = [cba, abc];
+console.log(`${abc} and ${cba}`);
+//how to merged two arrays
+let numArr1 = [1, 3, 5];
+let numArr2 = [2, 4, 6];
+let finArray = numArr1.concat(numArr2);
+let sortArray = finArray.sort((a, b) => {
+  return a - b;
+});
+console.log(sortArray);
+let result = [...numArr1, ...numArr2];
+console.log(result);
+// simple calculator
+// let operator = prompt("Enter operator like +,-,*,/");
+// let input1 = parseInt(prompt("Please enter 1st number"));
+// let input2 = parseInt(prompt("Please enter 2nd number"));
+
+// if (operator == "+") {
+//   result = input1 + input2;
+// } else if (operator == "-") {
+//   result = input1 - input2;
+// } else if (operator == "*") {
+//   result = input1 * input2;
+// } else if (operator == "/") {
+//   result = input1 - input2;
+// } else {
+//   console.log("invalid operator");
+// }
+// console.log(result)
+//how to find intersection of two arrays
+let arr5 = [4, 5, 6, 7, 8, 9];
+let arr6 = [1, 2, 3, 7, 4, 2];
+let inttersection = arr5.filter((ele) => {
+  return arr6.includes(ele);
+});
+console.log([...new Set(inttersection)])
+
+
+
+
+
+
+
+
+
+
+
