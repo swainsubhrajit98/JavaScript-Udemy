@@ -457,12 +457,72 @@ console.log(empTotalAge);
 // console.log(age);
 
 //Sum of Age of Employees who joined after 2000
-let empAgeAfter2000 = employees.filter((emp)=>emp.joinedYear >2000).reduce((acc,emp)=>acc+emp.age,0);
+let empAgeAfter2000 = employees
+  .filter((emp) => emp.joinedYear > 2000)
+  .reduce((acc, emp) => acc + emp.age, 0);
 console.log(empAgeAfter2000);
 
-  let TotalAge = employees
-    .filter((x) => x.joinedYear > 2000)
-    .map((x) => x.age)
-    .reduce((prevAge, age) => prevAge + age, 0);
+let TotalAge = employees
+  .filter((x) => x.joinedYear > 2000)
+  .map((x) => x.age)
+  .reduce((prevAge, age) => prevAge + age, 0);
 
-  console.log(TotalAge);
+console.log(TotalAge);
+
+function greet(city) {
+  return `Hi, I'm ${this.name} from ${city}`;
+}
+
+const user = { name: "Subhrajit" };
+
+console.log(greet.call(user, "Kolkata"));
+console.log(greet.apply(user, ["Delhi"]));
+const boundGreet = greet.bind(user, "Mumbai");
+console.log(boundGreet());
+
+// let am = "Amit kumar";
+// {let revAm = "";
+// for (let i = am.length - 1; i >= 0; i--) {
+//   revAm += am[i];
+// }}
+// console.log(revAm);
+
+function reverseString(str) {
+  revString = "";
+  for (let i = am.length - 1; i >= 0; i--) {
+    revString += am[i];
+  }
+  return revString;
+}
+let am = "Amit kumar";
+let revAm = reverseString(am);
+console.log(revAm);
+
+function countVowels(str) {
+  let vowelCounts = 0;
+  let vowels = "aeiouAEIOU";
+
+  for (let i = 0; i <= str.length - 1; i++) {
+    if (vowels.includes(str[i])) {
+      vowelCounts++;
+    }
+  }
+  return vowelCounts;
+}
+let amitName = "Amit Kumar";
+console.log("Total vowels:", countVowels(amitName));
+
+function removeDuplicates(arr) {
+  let uniqueArray = [];
+  for (let i = 0; i <= arr.length - 1; i++) {
+    if (!uniqueArray.includes(arr[i])) {
+      uniqueArray.push(arr[i]);
+    }
+  }
+  return uniqueArray;
+}
+console.log(removeDuplicates([1, 2, 2, 3, 4, 3, 5]));
+
+let newArray = [1, 2, 3, 2, 4, 3, 5];
+let uniQueArray = newArray.filter((item, index) => newArray.indexOf(item) === index);
+console.log(uniQueArray);
