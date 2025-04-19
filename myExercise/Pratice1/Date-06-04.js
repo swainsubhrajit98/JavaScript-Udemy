@@ -56,16 +56,16 @@ function countVowels(str) {
 console.log(countVowels("Subhrajit Swain"));
 //   Write a function called isPrime(num) that returns true if the number is prime, and false if it’s not.
 function isPrime(num) {
-  if (num <= 1) return false; // Not prime
-
+  if (num <= 1) return false;
+  if (num === 2) return true;
   for (let i = 2; i <= Math.sqrt(num); i++) {
     if (num % i === 0) {
-      return false; //
+      return false;
     }
   }
-
   return true;
 }
+console.log(isPrime(5))
 
 console.log(isPrime(2));
 console.log(isPrime(4));
@@ -128,7 +128,7 @@ const products = [
 ];
 //   Filter only the products that are in stock
 // Extract their prices
-// Get the total cos
+// Get the total cost
 
 const priceOfStockProducts = products
   .filter((prod) => prod.inStock)
