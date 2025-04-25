@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Random Users with Serial Number</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    img {
+      width: 50px;
+      border-radius: 50%;
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Random Users Table with Serial Number</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Sl No.</th>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody id="userTableBody">
+      <!-- Users will be inserted here -->
+    </tbody>
+  </table>
+
+  <button onclick="fetchUsers()">Load Users</button>
+
+  <script>
+    async function fetchUsers() {
+      try {
+        const res = await fetch('https://randomuser.me/api/?results=40'); // 
+        const data = await res.json();
+        const users = data.results;
+        
+        console.log(users[0]);
+
+        let rows = '';
+
+        users.forEach((user, index) => {
+          rows += `
+            <tr>
+              <td>${index + 1}</td> <!-- Serial Number -->
+              <td><img src="${user.picture.thumbnail}" alt="User Pic" /></td>
+              <td>${user.name.first} ${user.name.last}</td>
+              <td>${user.gender}</td>
+              <td>${user.email}</td>
+              <td>${user.phone}</td>
+              <td>${user.location.city}, ${user.location.country}</td>
+            </tr>
+          `;
+        });
+
+        document.getElementById('userTableBody').innerHTML = rows;
+      } catch (error) {
+        document.getElementById('userTableBody').innerHTML = `<tr><td colspan="5">Failed to load users.</td></tr>`;
+        console.error('Error:', error);
+      }
+    }
+  </script>
+
+</body>
+</html>
